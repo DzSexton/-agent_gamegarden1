@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0249B53AE2D2403FB85250BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B881F4A72C84789AB46505F /* ContentView.swift */; };
+		109076BB8F0E4254A4C3F540 /* TPIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B878D6E2754D17AFC920F1 /* TPIAlert.swift */; };
+		154D2BCB12804B57B45170C9 /* PersonaMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA17A8944B43A58E709D91 /* PersonaMockData.swift */; };
+		16D4DC0A9B924F02A21946B8 /* PersonaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7999AAB829249F8B7892A91 /* PersonaListView.swift */; };
+		1F90B13B8E694417BDBEBCAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAA05503333402FB47456F8 /* DashboardViewModel.swift */; };
+		2A423FC42A85449F83408234 /* PricingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D6D50B53540519ACA6E69 /* PricingViewModel.swift */; };
+		2D4C9E9E52A241DCB47559DB /* ThemeParkIntelligenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAECCB385A14B9D97D860CC /* ThemeParkIntelligenceApp.swift */; };
+		391D140A449A4C6D86E824D6 /* WeatherInsightSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C6B793CF44A61B186B37A /* WeatherInsightSheet.swift */; };
+		3CC1B19EA7444AFD9506CCAA /* RealTimeMetricCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F005F4B20A433692CC0AF2 /* RealTimeMetricCard.swift */; };
+		438EF541FA5844C396DE81CD /* RevenueTrendChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E58FC0A2E40D382A1F57F /* RevenueTrendChart.swift */; };
+		54C7423BE2BE4A3787DCDFF2 /* AINarrativeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CD20EBB7F4F3195718348 /* AINarrativeBanner.swift */; };
+		5989860FE34247938C395E9C /* CalibrationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A214016E6B3B41A5A2F38CC8 /* CalibrationSheet.swift */; };
+		5E86A71E168F4AACB1F4AE67 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB489A5E44B645DA971DEDF4 /* DashboardView.swift */; };
+		6C325A6B9D5848859BA53B39 /* AIAdviceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771459E6CB04881B3FE9195 /* AIAdviceSheet.swift */; };
+		8101E55B662F485398A8B699 /* WeatherMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8ACD550104C749B2D0569 /* WeatherMockData.swift */; };
+		8BBCD36F31F64B5E8589ECE5 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABFE56851684F998041C730 /* WeatherViewModel.swift */; };
+		90CBC2C7CB414684A1131E4F /* PersonaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEA4390DDF64A42BC3F9F29 /* PersonaModel.swift */; };
+		9FEB6EFDB60947ACB9ECF472 /* PricingSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94187084B93A41E9B9391EA5 /* PricingSimulation.swift */; };
+		A2F73D2B7F004F3C905A4C3A /* PricingConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEF1AF4C04477E9C3D8480 /* PricingConsoleView.swift */; };
+		A8B236A486534AC08E83358B /* WeatherIntelligenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D068AD451484C83BC7925 /* WeatherIntelligenceView.swift */; };
+		B0130ADB79244B8198F46149 /* AlertCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25194A3D1B946869F3E1027 /* AlertCenterView.swift */; };
+		BD8BD4A5FE964A66A785870F /* PersonaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099643ED146645B99FD1A5E0 /* PersonaDetailView.swift */; };
+		C945CB7A9167414FAB59A141 /* PersonaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCA4D2B3F8343BE88656508 /* PersonaViewModel.swift */; };
+		CEA52D95B4A5431BBF9FB149 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F94355995476DBE582E99 /* WeatherModel.swift */; };
+		CFC39BD95A9D4D2E89F94F05 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC8713F17F490EA06FA2DE /* MockDataService.swift */; };
+		DAF85F51068042B0B6BAE169 /* PersonaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD561CD955D45C9BFB5BDD9 /* PersonaMainView.swift */; };
+		F2E38242A33A4775B5E2B1B0 /* DashboardMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1FEF6F99D47728AF253A3 /* DashboardMetrics.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01AC8713F17F490EA06FA2DE /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockDataService.swift; path = Services/MockDataService.swift; sourceTree = "<group>"; };
+		068C6B793CF44A61B186B37A /* WeatherInsightSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherInsightSheet.swift; path = Views/Weather/WeatherInsightSheet.swift; sourceTree = "<group>"; };
+		099643ED146645B99FD1A5E0 /* PersonaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaDetailView.swift; path = Views/Personas/PersonaDetailView.swift; sourceTree = "<group>"; };
+		107CD20EBB7F4F3195718348 /* AINarrativeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AINarrativeBanner.swift; path = Views/Dashboard/AINarrativeBanner.swift; sourceTree = "<group>"; };
+		294E58FC0A2E40D382A1F57F /* RevenueTrendChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RevenueTrendChart.swift; path = Views/Dashboard/RevenueTrendChart.swift; sourceTree = "<group>"; };
+		2ABFE56851684F998041C730 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewModel.swift; path = ViewModels/WeatherViewModel.swift; sourceTree = "<group>"; };
+		30F005F4B20A433692CC0AF2 /* RealTimeMetricCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealTimeMetricCard.swift; path = Views/Dashboard/RealTimeMetricCard.swift; sourceTree = "<group>"; };
+		3CEA4390DDF64A42BC3F9F29 /* PersonaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaModel.swift; path = Models/PersonaModel.swift; sourceTree = "<group>"; };
+		5771459E6CB04881B3FE9195 /* AIAdviceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AIAdviceSheet.swift; path = Views/Personas/AIAdviceSheet.swift; sourceTree = "<group>"; };
+		60E1FEF6F99D47728AF253A3 /* DashboardMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardMetrics.swift; path = Models/DashboardMetrics.swift; sourceTree = "<group>"; };
+		7B881F4A72C84789AB46505F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7BCA4D2B3F8343BE88656508 /* PersonaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaViewModel.swift; path = ViewModels/PersonaViewModel.swift; sourceTree = "<group>"; };
+		7C6D068AD451484C83BC7925 /* WeatherIntelligenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherIntelligenceView.swift; path = Views/Weather/WeatherIntelligenceView.swift; sourceTree = "<group>"; };
+		7DD561CD955D45C9BFB5BDD9 /* PersonaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaMainView.swift; path = Views/Personas/PersonaMainView.swift; sourceTree = "<group>"; };
+		839F94355995476DBE582E99 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherModel.swift; path = Models/WeatherModel.swift; sourceTree = "<group>"; };
+		94187084B93A41E9B9391EA5 /* PricingSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PricingSimulation.swift; path = Models/PricingSimulation.swift; sourceTree = "<group>"; };
+		98B878D6E2754D17AFC920F1 /* TPIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TPIAlert.swift; path = Models/TPIAlert.swift; sourceTree = "<group>"; };
+		A214016E6B3B41A5A2F38CC8 /* CalibrationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalibrationSheet.swift; path = Views/Dashboard/CalibrationSheet.swift; sourceTree = "<group>"; };
+		A25194A3D1B946869F3E1027 /* AlertCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertCenterView.swift; path = Views/Alerts/AlertCenterView.swift; sourceTree = "<group>"; };
+		A28D6D50B53540519ACA6E69 /* PricingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PricingViewModel.swift; path = ViewModels/PricingViewModel.swift; sourceTree = "<group>"; };
+		A7999AAB829249F8B7892A91 /* PersonaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaListView.swift; path = Views/Personas/PersonaListView.swift; sourceTree = "<group>"; };
+		AFB8ACD550104C749B2D0569 /* WeatherMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherMockData.swift; path = Services/WeatherMockData.swift; sourceTree = "<group>"; };
+		BB489A5E44B645DA971DEDF4 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardView.swift; path = Views/Dashboard/DashboardView.swift; sourceTree = "<group>"; };
+		BF78C51AE2DC4F5F975038C0 /* ThemeParkIntelligence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeParkIntelligence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBAECCB385A14B9D97D860CC /* ThemeParkIntelligenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeParkIntelligenceApp.swift; sourceTree = "<group>"; };
+		DECEF1AF4C04477E9C3D8480 /* PricingConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PricingConsoleView.swift; path = Views/Pricing/PricingConsoleView.swift; sourceTree = "<group>"; };
+		ECAA05503333402FB47456F8 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardViewModel.swift; path = ViewModels/DashboardViewModel.swift; sourceTree = "<group>"; };
+		F7EA17A8944B43A58E709D91 /* PersonaMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonaMockData.swift; path = Services/PersonaMockData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8A3AC67E7364C50A22DD0A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		150E1B20509A4C13880C756E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF78C51AE2DC4F5F975038C0 /* ThemeParkIntelligence.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44AD908E6FBC47C7A4EC561A /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				7C6D068AD451484C83BC7925 /* WeatherIntelligenceView.swift */,
+				068C6B793CF44A61B186B37A /* WeatherInsightSheet.swift */,
+			);
+			name = Weather;
+			sourceTree = "<group>";
+		};
+		69489C9E6C4A45B0BEE68170 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60E1FEF6F99D47728AF253A3 /* DashboardMetrics.swift */,
+				94187084B93A41E9B9391EA5 /* PricingSimulation.swift */,
+				98B878D6E2754D17AFC920F1 /* TPIAlert.swift */,
+				3CEA4390DDF64A42BC3F9F29 /* PersonaModel.swift */,
+				839F94355995476DBE582E99 /* WeatherModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7D214BA11DC341F5B47F65FF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ECAA05503333402FB47456F8 /* DashboardViewModel.swift */,
+				A28D6D50B53540519ACA6E69 /* PricingViewModel.swift */,
+				7BCA4D2B3F8343BE88656508 /* PersonaViewModel.swift */,
+				2ABFE56851684F998041C730 /* WeatherViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		90AE652DB17F44B39737F9DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6F52AFCD5804BE9B971782F /* Dashboard */,
+				B480E89046F742DEA94965B8 /* Pricing */,
+				F0533592FF574EB9AE5D18F0 /* Alerts */,
+				FC6773A83E9E44A0ACDC0D87 /* Personas */,
+				44AD908E6FBC47C7A4EC561A /* Weather */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9410EAB346F24E45ADD84903 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01AC8713F17F490EA06FA2DE /* MockDataService.swift */,
+				F7EA17A8944B43A58E709D91 /* PersonaMockData.swift */,
+				AFB8ACD550104C749B2D0569 /* WeatherMockData.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		B480E89046F742DEA94965B8 /* Pricing */ = {
+			isa = PBXGroup;
+			children = (
+				DECEF1AF4C04477E9C3D8480 /* PricingConsoleView.swift */,
+			);
+			name = Pricing;
+			sourceTree = "<group>";
+		};
+		C552D4D76D4342FD8AEA16EE /* ThemeParkIntelligence */ = {
+			isa = PBXGroup;
+			children = (
+				69489C9E6C4A45B0BEE68170 /* Models */,
+				9410EAB346F24E45ADD84903 /* Services */,
+				7D214BA11DC341F5B47F65FF /* ViewModels */,
+				90AE652DB17F44B39737F9DE /* Views */,
+				DBAECCB385A14B9D97D860CC /* ThemeParkIntelligenceApp.swift */,
+				7B881F4A72C84789AB46505F /* ContentView.swift */,
+				150E1B20509A4C13880C756E /* Products */,
+			);
+			name = ThemeParkIntelligence;
+			sourceTree = "<group>";
+		};
+		F0533592FF574EB9AE5D18F0 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				A25194A3D1B946869F3E1027 /* AlertCenterView.swift */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
+		F6F52AFCD5804BE9B971782F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BB489A5E44B645DA971DEDF4 /* DashboardView.swift */,
+				30F005F4B20A433692CC0AF2 /* RealTimeMetricCard.swift */,
+				294E58FC0A2E40D382A1F57F /* RevenueTrendChart.swift */,
+				107CD20EBB7F4F3195718348 /* AINarrativeBanner.swift */,
+				A214016E6B3B41A5A2F38CC8 /* CalibrationSheet.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		FC6773A83E9E44A0ACDC0D87 /* Personas */ = {
+			isa = PBXGroup;
+			children = (
+				7DD561CD955D45C9BFB5BDD9 /* PersonaMainView.swift */,
+				A7999AAB829249F8B7892A91 /* PersonaListView.swift */,
+				099643ED146645B99FD1A5E0 /* PersonaDetailView.swift */,
+				5771459E6CB04881B3FE9195 /* AIAdviceSheet.swift */,
+			);
+			name = Personas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B3371482DC644E29E849F4C /* ThemeParkIntelligence */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1DF813C36D34317A57E12EC /* Build configuration list for PBXNativeTarget "ThemeParkIntelligence" */;
+			buildPhases = (
+				C68148A8A025437DBD3BCFA3 /* Sources */,
+				C8A3AC67E7364C50A22DD0A7 /* Frameworks */,
+				867E92DED74340FD9AD75B15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ThemeParkIntelligence;
+			productName = ThemeParkIntelligence;
+			productReference = BF78C51AE2DC4F5F975038C0 /* ThemeParkIntelligence.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4520B69D35FB47CA8EC080D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = ECC7CEB1FAB940028497CBFE /* Build configuration list for PBXProject "ThemeParkIntelligence" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C552D4D76D4342FD8AEA16EE /* ThemeParkIntelligence */;
+			productRefGroup = 150E1B20509A4C13880C756E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B3371482DC644E29E849F4C /* ThemeParkIntelligence */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		867E92DED74340FD9AD75B15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C68148A8A025437DBD3BCFA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D4C9E9E52A241DCB47559DB /* ThemeParkIntelligenceApp.swift in Sources */,
+				0249B53AE2D2403FB85250BC /* ContentView.swift in Sources */,
+				F2E38242A33A4775B5E2B1B0 /* DashboardMetrics.swift in Sources */,
+				9FEB6EFDB60947ACB9ECF472 /* PricingSimulation.swift in Sources */,
+				109076BB8F0E4254A4C3F540 /* TPIAlert.swift in Sources */,
+				90CBC2C7CB414684A1131E4F /* PersonaModel.swift in Sources */,
+				CFC39BD95A9D4D2E89F94F05 /* MockDataService.swift in Sources */,
+				154D2BCB12804B57B45170C9 /* PersonaMockData.swift in Sources */,
+				1F90B13B8E694417BDBEBCAC /* DashboardViewModel.swift in Sources */,
+				2A423FC42A85449F83408234 /* PricingViewModel.swift in Sources */,
+				C945CB7A9167414FAB59A141 /* PersonaViewModel.swift in Sources */,
+				5E86A71E168F4AACB1F4AE67 /* DashboardView.swift in Sources */,
+				3CC1B19EA7444AFD9506CCAA /* RealTimeMetricCard.swift in Sources */,
+				438EF541FA5844C396DE81CD /* RevenueTrendChart.swift in Sources */,
+				54C7423BE2BE4A3787DCDFF2 /* AINarrativeBanner.swift in Sources */,
+				5989860FE34247938C395E9C /* CalibrationSheet.swift in Sources */,
+				A2F73D2B7F004F3C905A4C3A /* PricingConsoleView.swift in Sources */,
+				B0130ADB79244B8198F46149 /* AlertCenterView.swift in Sources */,
+				CEA52D95B4A5431BBF9FB149 /* WeatherModel.swift in Sources */,
+				8101E55B662F485398A8B699 /* WeatherMockData.swift in Sources */,
+				8BBCD36F31F64B5E8589ECE5 /* WeatherViewModel.swift in Sources */,
+				A8B236A486534AC08E83358B /* WeatherIntelligenceView.swift in Sources */,
+				391D140A449A4C6D86E824D6 /* WeatherInsightSheet.swift in Sources */,
+				DAF85F51068042B0B6BAE169 /* PersonaMainView.swift in Sources */,
+				16D4DC0A9B924F02A21946B8 /* PersonaListView.swift in Sources */,
+				BD8BD4A5FE964A66A785870F /* PersonaDetailView.swift in Sources */,
+				6C325A6B9D5848859BA53B39 /* AIAdviceSheet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		15971CCEE0E14A49B7A77361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B34E45A782741B3A6D4C77D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETS_CATALOG_COMPILER_FORCE_TOOL_BUILD = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44PN546GDB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deqing.ThemeParkIntelligence;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41824BCDEB29401CA7D55DCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETS_CATALOG_COMPILER_FORCE_TOOL_BUILD = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44PN546GDB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deqing.ThemeParkIntelligence;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CD37F2F75D6B4D2196C67148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1DF813C36D34317A57E12EC /* Build configuration list for PBXNativeTarget "ThemeParkIntelligence" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B34E45A782741B3A6D4C77D /* Debug */,
+				41824BCDEB29401CA7D55DCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECC7CEB1FAB940028497CBFE /* Build configuration list for PBXProject "ThemeParkIntelligence" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15971CCEE0E14A49B7A77361 /* Debug */,
+				CD37F2F75D6B4D2196C67148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4520B69D35FB47CA8EC080D9 /* Project object */;
+}
