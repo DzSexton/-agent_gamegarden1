@@ -16,6 +16,7 @@ struct WeatherIntelligenceView: View {
                         heroCard
                         timelineSection
                         if let sel = vm.selectedHour { expandedDetail(sel) }
+                        rlRewardSection
                         historicalSection
                         Spacer().frame(height: 80) // room for bottom button
                     }
@@ -139,6 +140,177 @@ struct WeatherIntelligenceView: View {
         .background(.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 16))
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(hour.type.color.opacity(0.3), lineWidth: 1))
         .transition(.move(edge: .top).combined(with: .opacity))
+    }
+
+    // MARK: - RL Reward Section
+
+    private var rlRewardSection: some View {
+        let activeHour = vm.selectedHour ?? vm.hourlyWeather.first(where: { $0.hour == vm.currentHour }) ?? vm.hourlyWeather[0]
+        return VStack(alignment: .leading, spacing: 14) {
+
+            // ── Header ──────────────────────────────────────────────
+            HStack {
+                Label("强化学习奖惩机制", systemImage: "arrow.triangle.2.circlepath.circle.fill")
+                    .font(.headline).foregroundStyle(.white)
+                Spacer()
+                HStack(spacing: 4) {
+                    Text("策略评分").font(.caption2).foregroundStyle(.secondary)
+                    Text("\(vm.policyScore)")
+                        .font(.caption.bold().monospacedDigit())
+                        .foregroundStyle(vm.policyGradeColor)
+                    Text(vm.policyGrade)
+                        .font(.caption2.bold())
+                        .foregroundStyle(vm.policyGradeColor)
+                        .padding(.horizontal, 6).padding(.vertical, 2)
+                        .background(vm.policyGradeColor.opacity(0.15), in: Capsule())
+                }
+            }
+
+            // ── S → A → R 三元组 ────────────────────────────────────
+            HStack(spacing: 0) {
+                sarBox(
+                    tag: "S  状态",
+                    icon: activeHour.type.icon,
+                    iconColor: activeHour.type.color,
+                    line1: activeHour.type.displayName,
+                    line2: "\(activeHour.temperature)°C · 湿度\(activeHour.humidity)%",
+                    accent: activeHour.type.color
+                )
+                sarArrow
+                sarBox(
+                    tag: "A  动作",
+                    icon: activeHour.priceDelta >= 0 ? "arrow.up.circle.fill" : "arrow.down.circle.fill",
+                    iconColor: activeHour.priceDelta >= 0 ? .green : .orange,
+                    line1: activeHour.priceDelta >= 0
+                        ? "+\(Int(activeHour.priceDelta * 100))% 上调"
+                        : "\(Int(activeHour.priceDelta * 100))% 下调",
+                    line2: "票价动作",
+                    accent: activeHour.priceDelta >= 0 ? .green : .orange
+                )
+                sarArrow
+                sarBox(
+                    tag: "R  奖励",
+                    icon: activeHour.rewardScore >= 0 ? "plus.circle.fill" : "minus.circle.fill",
+                    iconColor: activeHour.rewardScore >= 0 ? .green : .red,
+                    line1: String(format: "%+.2f", activeHour.rewardScore),
+                    line2: activeHour.rewardScore >= 0.4 ? "策略优秀"
+                         : activeHour.rewardScore >= 0   ? "正向收益"
+                         : activeHour.rewardScore >= -0.2 ? "轻微惩罚" : "天气惩罚",
+                    accent: activeHour.rewardScore >= 0 ? .green : .red
+                )
+            }
+
+            // ── 今日逐小时奖惩柱状图 ─────────────────────────────────
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text("逐小时奖惩记录").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                    Spacer()
+                    Text("γ = 0.9  折扣累积奖励").font(.caption2).foregroundStyle(.tertiary)
+                }
+                Chart {
+                    ForEach(vm.hourlyWeather) { h in
+                        BarMark(
+                            x: .value("H", h.hour),
+                            yStart: .value("R", 0),
+                            yEnd:   .value("R", h.rewardScore)
+                        )
+                        .foregroundStyle(h.rewardScore >= 0
+                            ? Color.green.opacity(h.hour == vm.currentHour ? 1.0 : 0.65)
+                            : Color.red.opacity(h.hour == vm.currentHour ? 1.0 : 0.65))
+                        .cornerRadius(3)
+                    }
+                    RuleMark(y: .value("zero", 0))
+                        .foregroundStyle(.white.opacity(0.18))
+                        .lineStyle(.init(lineWidth: 0.8))
+                    RuleMark(x: .value("now", vm.currentHour))
+                        .foregroundStyle(.white.opacity(0.25))
+                        .lineStyle(.init(lineWidth: 1, dash: [3, 3]))
+                        .annotation(position: .top) {
+                            Text("NOW").font(.system(size: 7, weight: .bold)).foregroundStyle(.white.opacity(0.45))
+                        }
+                }
+                .chartXAxis {
+                    AxisMarks(values: [8, 12, 16, 20, 22]) { v in
+                        AxisValueLabel {
+                            Text("\(v.as(Int.self) ?? 0)h")
+                                .font(.system(size: 9)).foregroundStyle(.white.opacity(0.35))
+                        }
+                        AxisGridLine(stroke: .init(lineWidth: 0.4))
+                    }
+                }
+                .chartYAxis {
+                    AxisMarks(values: [-1.0, 0.0, 1.0]) { v in
+                        AxisValueLabel {
+                            if let d = v.as(Double.self) {
+                                Text(d == 0 ? "0" : (d > 0 ? "+1" : "−1"))
+                                    .font(.system(size: 9)).foregroundStyle(.white.opacity(0.35))
+                            }
+                        }
+                        AxisGridLine(stroke: .init(lineWidth: 0.4))
+                    }
+                }
+                .chartYScale(domain: -1.0...1.0)
+                .frame(height: 75)
+            }
+
+            // ── 累计奖励 & Q 值 ──────────────────────────────────────
+            HStack(spacing: 10) {
+                qValueCell("累计奖励 Σr", value: String(format: "%+.2f", vm.cumulativeReward),
+                           color: vm.cumulativeReward >= 0 ? .green : .red)
+                qValueCell("当前 Q 值", value: String(format: "%+.2f", vm.currentQValue),
+                           color: .blue)
+                qValueCell("折扣因子 γ", value: "0.90", color: .purple)
+            }
+
+            Divider().overlay(.white.opacity(0.08))
+
+            // ── 策略更新日志 ─────────────────────────────────────────
+            VStack(alignment: .leading, spacing: 8) {
+                Text("策略梯度更新日志").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                ForEach(Array(vm.rlPolicyNotes.enumerated()), id: \.offset) { _, note in
+                    HStack(alignment: .top, spacing: 10) {
+                        Image(systemName: note.icon).font(.caption).foregroundStyle(note.color)
+                            .frame(width: 16).padding(.top, 1)
+                        Text(note.text).font(.caption).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+        }
+        .padding(16)
+        .background(.white.opacity(0.04), in: RoundedRectangle(cornerRadius: 20))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(.white.opacity(0.09), lineWidth: 1))
+    }
+
+    private func sarBox(tag: String, icon: String, iconColor: Color,
+                        line1: String, line2: String, accent: Color) -> some View {
+        VStack(spacing: 6) {
+            Text(tag).font(.system(size: 8, weight: .semibold)).foregroundStyle(.tertiary)
+            Image(systemName: icon).font(.title3).foregroundStyle(iconColor)
+            Text(line1).font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(.white).lineLimit(1).minimumScaleFactor(0.7)
+            Text(line2).font(.system(size: 9)).foregroundStyle(.secondary).lineLimit(1)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 12).padding(.horizontal, 6)
+        .background(accent.opacity(0.07), in: RoundedRectangle(cornerRadius: 12))
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(accent.opacity(0.2), lineWidth: 1))
+    }
+
+    private var sarArrow: some View {
+        Image(systemName: "arrow.right").font(.caption2).foregroundStyle(.tertiary)
+            .padding(.horizontal, 4)
+    }
+
+    private func qValueCell(_ label: String, value: String, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(value).font(.system(size: 15, weight: .bold, design: .monospaced)).foregroundStyle(color)
+            Text(label).font(.system(size: 9)).foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(10)
+        .background(color.opacity(0.07), in: RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color.opacity(0.15), lineWidth: 1))
     }
 
     // MARK: - Historical Match Section

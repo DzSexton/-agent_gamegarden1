@@ -50,12 +50,26 @@ struct PersonaDetailView: View {
                     recommendationRow(rec)
                 }
             } header: {
-                sectionHeader(
-                    title: "其他推荐",
-                    subtitle: "基于\(persona.category.rawValue)偏好",
-                    icon: "sparkles",
-                    color: .purple
-                )
+                VStack(alignment: .leading, spacing: 4) {
+                    sectionHeader(
+                        title: "其他推荐",
+                        subtitle: "基于\(persona.category.rawValue)偏好",
+                        icon: "sparkles",
+                        color: .purple
+                    )
+                    HStack(spacing: 5) {
+                        Image(systemName: "network").font(.system(size: 11)).foregroundStyle(.white)
+                        Text("GNN 图神经网络 · 跨人物相似度匹配")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.horizontal, 10).padding(.vertical, 5)
+                    .background(
+                        LinearGradient(colors: [.purple, Color(hex: "7B2FBE")], startPoint: .leading, endPoint: .trailing),
+                        in: Capsule()
+                    )
+                    .shadow(color: .purple.opacity(0.45), radius: 6, x: 0, y: 2)
+                }
             }
 
             // ── Row 4: AI Action ───────────────────────────────────────────
@@ -184,16 +198,15 @@ struct PersonaDetailView: View {
     }
 
     private func matchScoreBadge(_ score: Double) -> some View {
-        Text("\(Int(score * 100))%")
-            .font(.caption2.bold())
-            .foregroundStyle(score > 0.9 ? .green : score > 0.8 ? .orange : .secondary)
-            .padding(.horizontal, 6)
-            .padding(.vertical, 2)
-            .background(
-                (score > 0.9 ? Color.green : score > 0.8 ? Color.orange : Color.secondary)
-                    .opacity(0.12),
-                in: Capsule()
-            )
+        let accent: Color = score > 0.9 ? .green : score > 0.8 ? .orange : .secondary
+        return HStack(spacing: 3) {
+            Text("GNN").font(.system(size: 9, weight: .heavy)).foregroundStyle(.white.opacity(0.85))
+            Text("\(Int(score * 100))%").font(.caption.bold()).foregroundStyle(.white)
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(accent.gradient, in: Capsule())
+        .shadow(color: accent.opacity(0.4), radius: 4, x: 0, y: 1)
     }
 
     // MARK: - AI Button

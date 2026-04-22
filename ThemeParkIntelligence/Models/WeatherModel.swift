@@ -58,15 +58,18 @@ struct WeatherHour: Identifiable, Equatable {
     let humidity: Int        // 0-100
     let priceDelta: Double   // -0.25 ... +0.12
     let strategy: String
+    let rewardScore: Double  // RL 即时奖励: -1.0…+1.0
 
     init(
         id: UUID = UUID(),
         hour: Int, type: WeatherType, temperature: Int,
-        humidity: Int, priceDelta: Double, strategy: String
+        humidity: Int, priceDelta: Double, strategy: String,
+        rewardScore: Double = 0.0
     ) {
         self.id = id; self.hour = hour; self.type = type
         self.temperature = temperature; self.humidity = humidity
         self.priceDelta = priceDelta; self.strategy = strategy
+        self.rewardScore = rewardScore
     }
 
     static func == (l: WeatherHour, r: WeatherHour) -> Bool { l.id == r.id }

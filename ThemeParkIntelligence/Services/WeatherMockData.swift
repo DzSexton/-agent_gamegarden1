@@ -22,7 +22,28 @@ enum WeatherMockData {
             (21, .sunny,        23, 52, +0.03, "烟花秀高峰，游客滞留意愿强，维持夜场溢价"),
             (22, .sunny,        22, 50, +0.00, "收园时段，维持正常定价，重点推送次日复访优惠"),
         ]
-        return raw.map { WeatherHour(hour: $0.0, type: $0.1, temperature: $0.2, humidity: $0.3, priceDelta: $0.4, strategy: $0.5) }
+        // RL 即时奖励：+捕获溢价, -天气惩罚/策略失误 (-1.0…+1.0)
+        let rewards: [Double] = [
+             0.68,  // 8h  晴天溢价执行良好
+             0.72,  // 9h  持续优质策略
+             0.55,  // 10h 适度上调匹配天气
+             0.52,  // 11h 维持策略稳定
+             0.10,  // 12h 转阴未调价，轻微遗漏机会
+             0.38,  // 13h 提前 1h 识别降雨信号并下调 ✓
+            -0.15,  // 14h 大雨营收承压，策略正确但不可抗力
+            -0.42,  // 15h 雷阵雨强制关闭，强惩罚 (天气因子)
+            -0.28,  // 16h 持续降雨损失，室内套餐部分对冲
+             0.22,  // 17h 雨势减弱，恢复信号捕捉及时
+             0.35,  // 18h 雨停流量回升，观望策略合理
+             0.58,  // 19h 傍晚溢价恢复，Q值回升
+             0.65,  // 20h 烟花秀溢价策略命中
+             0.60,  // 21h 高峰维持，策略稳定
+             0.20,  // 22h 收园自然衰减
+        ]
+        return raw.enumerated().map { i, r in
+            WeatherHour(hour: r.0, type: r.1, temperature: r.2, humidity: r.3,
+                        priceDelta: r.4, strategy: r.5, rewardScore: rewards[i])
+        }
     }
 
     // MARK: - 历史对标日数据

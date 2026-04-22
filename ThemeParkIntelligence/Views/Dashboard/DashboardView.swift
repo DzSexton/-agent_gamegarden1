@@ -147,7 +147,21 @@ struct DashboardView: View {
         VStack(spacing: 0) {
             // Header
             HStack {
-                Text("24小时预测曲线").font(.headline).foregroundStyle(.white)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("24小时预测曲线").font(.headline).foregroundStyle(.white)
+                    HStack(spacing: 5) {
+                        Image(systemName: "cpu.fill").font(.system(size: 11)).foregroundStyle(.white)
+                        Text("XGBoost · LSTM · Random Forest")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.horizontal, 10).padding(.vertical, 5)
+                    .background(
+                        LinearGradient(colors: [.blue, Color(hex: "0055CC")], startPoint: .leading, endPoint: .trailing),
+                        in: Capsule()
+                    )
+                    .shadow(color: .blue.opacity(0.45), radius: 6, x: 0, y: 2)
+                }
                 Spacer()
                 HStack(spacing: 12) {
                     legendDot(.blue,   "客流")
@@ -263,9 +277,26 @@ struct DashboardView: View {
                 Label("AI 预测解释", systemImage: "brain.head.profile")
                     .font(.headline).foregroundStyle(.white)
                 Spacer()
-                Text("TPI-GAI v2.3.1").font(.caption2).foregroundStyle(.tertiary)
-                    .padding(.horizontal, 8).padding(.vertical, 3)
-                    .background(.white.opacity(0.06), in: Capsule())
+                HStack(spacing: 6) {
+                    HStack(spacing: 5) {
+                        Image(systemName: "point.3.connected.trianglepath.dotted")
+                            .font(.system(size: 11))
+                            .foregroundStyle(.white)
+                        Text("机器学习驱动")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.horizontal, 10).padding(.vertical, 5)
+                    .background(
+                        LinearGradient(colors: [.purple, Color(hex: "7B2FBE")], startPoint: .leading, endPoint: .trailing),
+                        in: Capsule()
+                    )
+                    .shadow(color: .purple.opacity(0.45), radius: 6, x: 0, y: 2)
+
+                    Text("TPI-GAI v2.3.1").font(.caption2).foregroundStyle(.tertiary)
+                        .padding(.horizontal, 8).padding(.vertical, 3)
+                        .background(.white.opacity(0.06), in: Capsule())
+                }
             }
             .padding(.horizontal, 16).padding(.top, 16).padding(.bottom, 12)
 
